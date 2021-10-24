@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React,{useEffect, useState} from 'react';
 import Table from './table';
-import SearchBar from './searchbar';
 import './searchbar.css';
 
 
@@ -33,18 +32,16 @@ const Homepage = () => {
 
     return (
     <>
-    {/* <SearchBar/> */}
     <div className="topnav">
 <div class="search-container" style={{padding:"10px"}}>
     <form>
       <input type="text" placeholder="Search.." name="search" onChange={(e)=>setTerm(e.target.value)} value={term}/>
-      {/* <button><i class="fa fa-search"></i></button> */}
     </form>
   </div>
 </div>
 
     <div className="container" style={{marginTop:"20px"}}>
-        <Table data={search(data)}/>
+        <Table data={search(data)} loading={loading}/>
     </div>
 
     <div style={{display:'flex', alignItems:'center',justifyContent:'center',marginTop:'22px'}}>

@@ -1,17 +1,12 @@
-import axios from 'axios';
-import React,{useEffect, useState} from 'react';
+import React from 'react';
 import './table.css';
 
-import ReactPaginate from 'react-paginate';
-
-
-const Table = ({data}) => {
+const Table = ({data, loading}) => {
     
-    // if (!loading){
-    //     return <h4>Loading...</h4>;
-    // }
+    if (!loading){
+        return <h4>Loading...</h4>;
+    }
    
-    // const columns = data[0] && Object.keys(data[0]);
     return (
         <div>
         <div className="tableContainer" >
@@ -24,7 +19,6 @@ const Table = ({data}) => {
                         <th>Ph</th>
                         <th>Description</th>
                         <th>Brewers Tips</th>
-                        {/* {data[0] && columns.map((heading)=><th>{heading}</th>)} */}
                     </tr>
                 </thead>
                 <tbody>
@@ -38,11 +32,6 @@ const Table = ({data}) => {
                         <td data-label="Brewers Tips">{item.brewers_tips}</td>
                         </tr>
                         )}
-                        {/* {data.map(row => <tr>
-                            {
-                                columns.map(column => <td>{row[column]}</td>)
-                            }
-                        </tr>)} */}
                 </tbody>
             </table>
 
